@@ -1,0 +1,25 @@
+[user]
+	name = vudinhquang
+	email = vudinhquangk53@gmail.com
+[credential]
+	helper = manager
+[diff]
+    tool = winmerge
+[difftool "winmerge"]
+    cmd = "'C:/Program Files (x86)/WinMerge/WinMergeU.exe'" -e "$LOCAL" "$REMOTE"
+[difftool]
+    prompt = false
+[merge]
+    tool = winmerge
+[mergetool "winmerge"]
+    cmd = "'C:/Program Files (x86)/WinMerge/WinMergeU.exe'" \"$MERGED\" \"$REMOTE\"
+[mergetool]
+    keepBackup = false
+    trustExitCode = false
+[core]
+	editor = C:/Progra~1/Notepad++/notepad++.exe
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
