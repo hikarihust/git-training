@@ -24,3 +24,24 @@
  		-git mergetool
  		-Xử lý conflict:paster lần lượt file tương ứng trên nhánh master vào winmerge thực hiện so sánh với nhánh video để merge
  		-tạo commit mới kết thúc quá trình merge
+ 
+ (Tình huống 2)
+ 	Master branch:readme.txt
+		init readme.txt
+		abcxyz
+		video
+ 	Video branch:readme.txt
+		init readme.txt
+		abcxyz
+
+		Line 4
+	-->Trong trường hợp này cũng vẫn sẽ có đụng độ xảy ra, các vấn đề conflict xảy ra:
+		Tại line 3: lấy giá trị video hay lấy giá trị rỗng?
+			init readme.txt
+			abcxyz
+			<<<<<<< HEAD
+			video
+			=======
+
+			Line 4
+			>>>>>>> video
