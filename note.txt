@@ -4,6 +4,61 @@
 -Khi pull Remote Repo mới nhất về mà có conflict xảy ra: git merge --abort
 -Ctrl + C: Exit để thực hiện tiếp lệnh git
 -git rebase --abort: Ngừng quá trình Rebase khi có conflict xảy ra
+-git reflog: Ngoài việc xem được lịch sử commit giống như lệnh git log thì còn xem được các hành động của ta trên Local Repo
+	Master Branch:git log
+		commit 31c82455c4ef339b15ffcb16191d5a978f23b4b0 (HEAD -> master)
+		Author: vudinhquang <vudinhquangk53@gmail.com>
+		Date:   Sat Feb 9 16:09:02 2019 +0900
+		    master - add abc
+		commit 8cf64462ec597b5610a506f3c9e4302e5829fa68
+		Author: vudinhquang <vudinhquangk53@gmail.com>
+		Date:   Sat Feb 9 16:06:04 2019 +0900
+		    init project
+
+	Video Branch:git log
+		commit 32b807a8397c6e4cef4f507bbee0ceb94b1b241e (HEAD -> video)
+		Author: vudinhquang <vudinhquangk53@gmail.com>
+		Date:   Sat Feb 9 16:07:48 2019 +0900
+		    video - add 123
+		commit 8cf64462ec597b5610a506f3c9e4302e5829fa68
+		Author: vudinhquang <vudinhquangk53@gmail.com>
+		Date:   Sat Feb 9 16:06:04 2019 +0900
+		    init project
+
+	git reflog:
+	31c8245 (HEAD -> master) HEAD@{0}: commit: master - add abc
+	8cf6446 HEAD@{1}: checkout: moving from video to master
+	32b807a (video) HEAD@{2}: commit: video - add 123
+	8cf6446 HEAD@{3}: checkout: moving from master to video
+	8cf6446 HEAD@{4}: commit (initial): init project
+-git log: Xem lại lịch sử commit trên 1 nhánh nào đó
+	Video Branch:git log
+		commit e5e6b371465a1864a9ddefda1c37e46993e2aa8e (HEAD -> video)
+		Author: vudinhquang <vudinhquangk53@gmail.com>
+		Date:   Sat Feb 9 16:33:50 2019 +0900
+		    video - add 456
+		commit 53e58870a18d8eff518df24d28e67c759091e697
+		Author: vudinhquang <vudinhquangk53@gmail.com>
+		Date:   Sat Feb 9 16:33:05 2019 +0900
+		    video - add 123
+		commit 6a6d5e176da085d25efa5340ad6da990aa250fb0 (master)
+		Author: vudinhquang <vudinhquangk53@gmail.com>
+		Date:   Sat Feb 9 16:32:01 2019 +0900
+		    init project
+
+-git reset --hard: Quay về 1 vị trí commit nào đó của Video Branch
+	Video Branch:
+	step1: git reset --hard 53e588
+	step2: git log
+		commit 53e58870a18d8eff518df24d28e67c759091e697 (HEAD -> video)
+		Author: vudinhquang <vudinhquangk53@gmail.com>
+		Date:   Sat Feb 9 16:33:05 2019 +0900
+		    video - add 123
+		commit 6a6d5e176da085d25efa5340ad6da990aa250fb0 (master)
+		Author: vudinhquang <vudinhquangk53@gmail.com>
+		Date:   Sat Feb 9 16:32:01 2019 +0900
+		    init project
+	-->Thường dùng câu lệnh git log để kiểm tra các commit đang có rồi sau đó dùng git reset --hard để reset về 1 commit mong muốn.
 
 -------------------------------------------------------------------------------------------------------------------
 1.Conflict
