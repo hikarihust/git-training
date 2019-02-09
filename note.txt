@@ -1,0 +1,26 @@
+-So sánh giữa 2 nhanh: git difftool branch1 branch2
+-Cách xem thông số cấu hình Git: git config -l
+-Hủy thực hiện merge khi có conflict xảy ra: git merge --abort
+-Ctrl + C: Exit để thực hiện tiếp lệnh git
+-------------------------------------------------------------------------------------------------------------------
+1.Conflict
+ -Conflict xảy ra khi có cùng 1 sựu thay đổi trên cùng 1 dòng của 1 tập tin và GIT không biết lựa chọn câu lệnh nào.
+ -Conflict có thể xảy ra trong trường hợp làm việc nhóm: 2 người cùng chỉnh sửa trên cùng 1 file, 1 dòng code(Remote)
+ -Khi 1 người làm việc nhưng ở mỗi nhánh lại có sự thao tác trên cùng 1 tập tin(Branch)
+
+
+ 2.Xử lý conflict
+ -Branch:
+ (Tình huống 1)
+ 	Master branch:readme.txt
+ 		init readme.txt(line 1)
+ 		abcxyz (line 2)
+ 	Video branch:readme.txt
+ 		init readme.txt(line 1)
+ 		video(line 2)
+ 	-->Khi merge 2 nhánh lại thì sẽ có conflict xảy ra tại line 2:
+ 		-coppy nhánh master ra chỗ khác
+ 		-git merge video(tại bước này có conflict xảy ra)
+ 		-git mergetool
+ 		-Xử lý conflict:paster lần lượt file tương ứng trên nhánh master vào winmerge thực hiện so sánh với nhánh video để merge
+ 		-tạo commit mới kết thúc quá trình merge
