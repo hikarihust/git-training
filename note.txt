@@ -159,3 +159,17 @@
 			video brnach: thay đổi từ commit b69f3e3 -> 7b023e6
 
 	--> Fetch không cập nhật lại WORKSPACE như pull mà chỉ cập nhật lại LOCAL REPO
+
+------------------------------------------------------------------------------------------------------------------
+
+					  Thực hành sử dụng .gitignore
+
+Sử dụng .gitignore để không theo dõi các tập tin được chỉ định(Từ chối một số tập tin được thêm vào vùng Staged) -> dụng để
+		khai báo các tập tin mà mình không muốn commit, không muốn đưa vào Staged.
+
+- Add me.txt, libs/string.txt, libs/image.txt nhưng không muốn commit
+- Add file .gitignore bằng câu lệnh touch .gitignore
+- Cập nhật nội dung cho file .gitignore
+		me.txt
+		/libs 
+--> Khi sử dụng git status thì không thấy me.txt và các file string.txt, image.txt nằm trong thư mục libs bị theo dõi
