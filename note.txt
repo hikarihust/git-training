@@ -1,7 +1,10 @@
 -So sánh giữa 2 nhanh: git difftool branch1 branch2
 -Cách xem thông số cấu hình Git: git config -l
 -Hủy thực hiện merge khi có conflict xảy ra: git merge --abort
+-Khi pull Remote Repo mới nhất về mà có conflict xảy ra: git merge --abort
 -Ctrl + C: Exit để thực hiện tiếp lệnh git
+
+
 -------------------------------------------------------------------------------------------------------------------
 1.Conflict
  -Conflict xảy ra khi có cùng 1 sựu thay đổi trên cùng 1 dòng của 1 tập tin và GIT không biết lựa chọn câu lệnh nào.
@@ -45,3 +48,26 @@
 
 			Line 4
 			>>>>>>> video
+
+-Remote:
+	Local Repo:
+		a1
+		a2
+	Remote Repo:
+		a1
+		b12
+	-->Có conflict xảy ra khi push lên Repo(Note: trước khi push thì cần phải pull về trước)
+		-git pull origin master: có Conflict xảy ra.
+			a1
+			<<<<<<< HEAD
+			a2
+			=======
+			b12
+			>>>>>>> 3ecf23e1b02bbe090ce644bb1c38dafc34221f03
+	-Cách xử lý conflict trong trường hợp này:
+		-coppy Local Repo ra chỗ khác
+		-git pull origin master, tại đây sẽ có conflict xảy ra
+		-git mergetool(merge bằng winmerge)
+		-tạo ra commit mới(kết thúc quá trình xử lý conflict)
+		-git pull origin master: thực hiện pull lại 1 lần nữa(Không bị conflict)
+		-git push origin master
