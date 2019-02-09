@@ -60,6 +60,9 @@
 		    init project
 	-->Thường dùng câu lệnh git log để kiểm tra các commit đang có rồi sau đó dùng git reset --hard để reset về 1 commit mong muốn.
 
+-STASH: Vùng lưu trữ tạm, trong quá trình làm việc mà chưa muốn commit thì lưu tạm vào vùng lưu trữ tạm STASH, sau đó có thể khôi
+	phục lại trạng thái mà ta đã làm việc mà được lưu vào STASH
+
 -------------------------------------------------------------------------------------------------------------------
 1.Conflict
  -Conflict xảy ra khi có cùng 1 sựu thay đổi trên cùng 1 dòng của 1 tập tin và GIT không biết lựa chọn câu lệnh nào.
@@ -126,3 +129,33 @@
 		-tạo ra commit mới(kết thúc quá trình xử lý conflict)
 		-git pull origin master: thực hiện pull lại 1 lần nữa(Không bị conflict)
 		-git push origin master
+
+------------------------------------------------------------------------------------------------------------------
+
+										Hiểu rõ hơn về  CLONE, PULL và FETCH
+
+1.CLONE: Sao chép toàn bộ Remote Repo
+2.PULL: Sau khi thực hiện CLONE, trong quá trình làm việc mà có thay đổi gì trên remote thì chỉ cần dùng pull để cập
+	nhật lại
+3.FETCH: Lấy toàn bộ dữ liệu của Remote Repo nhưng cho phép gộp thủ công chứ không tự động gộp giống như pull
+	Thực hiện xong git fetch thì có thể thực hiện cập nhật thủ công phần đã thay đổi(pull thì cập nhật tự động sẽ diễn ra) 
+	 bằng cách thực hiện merge:
+	 	-git fetch/git fetch origin
+	 	-checkout video
+	 	-git merge origin/master: merge nhánh video với origin/master, trong đó master trên remote đã được thay đổi,
+	 		do đó thì phần thay đối đó sẽ được merge vào nhánh video
+
+	Thông thường thì kết quả của câu lệnh git fetch/git fetch origin có dạng như sau:
+		remote: Enumerating objects: 10, done.
+		remote: Counting objects: 100% (10/10), done.
+		remote: Compressing objects: 100% (6/6), done.
+		remote: Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+		Unpacking objects: 100% (6/6), done.
+		From https://github.com/vudinhquang/test123
+		   0cab120..8734251  master     -> origin/master
+		   b69f3e3..7b023e6  video      -> origin/video
+		Trong đó thì trên remote có 2 sựu thay đổi:
+			master branch: thay đổi từ commit 0cab120 -> 8734251
+			video brnach: thay đổi từ commit b69f3e3 -> 7b023e6
+
+	--> Fetch không cập nhật lại WORKSPACE như pull mà chỉ cập nhật lại LOCAL REPO
