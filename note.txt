@@ -3,7 +3,7 @@
 -Hủy thực hiện merge khi có conflict xảy ra: git merge --abort
 -Khi pull Remote Repo mới nhất về mà có conflict xảy ra: git merge --abort
 -Ctrl + C: Exit để thực hiện tiếp lệnh git
-
+-git rebase --abort: Ngừng quá trình Rebase khi có conflict xảy ra
 
 -------------------------------------------------------------------------------------------------------------------
 1.Conflict
