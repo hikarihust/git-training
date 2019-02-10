@@ -173,3 +173,35 @@ Sử dụng .gitignore để không theo dõi các tập tin được chỉ đ�
 		me.txt
 		/libs 
 --> Khi sử dụng git status thì không thấy me.txt và các file string.txt, image.txt nằm trong thư mục libs bị theo dõi
+
+
+Tìm hiểu chi tiết hơn về gitignore:
+		- Không commit các file *.xml : Khi có nhiều file xml thì có thể đại diện tên của các file này bằng dấu '*',
+				(bất kể file .xml nằm ở vị trí nào, thư mục nào cũng đều không được theo dẽo)
+		- Dấu '#' là ghi chú
+		- abc/ là thư mục abc, bỏ qua tất cả tập tin trong thư mục abc/
+			abc  - def		- def.txt
+				 - abc.txt				
+			abc2 -	abc - test.txt
+			--> Không theo dõi tất cả các thư mục abc trên.
+		- *.txt không theo dõi tất cả các tập tin có đuôi là .txt(ở tất cả các vị trị)
+		# nhưng theo dõi tập tin testhtml.txt mặc dù đang bỏ qua tất cả các tập tin .txt ở trên !testhtml.txt
+		# chỉ bỏ qua tập tin libs ở thư mục gốc, chứ không phải ở thư mục con subdir/libs -> /libs
+			lib  - def		- def.txt
+				 - abc.txt				
+			abc2 -	libs - test.txt
+			-->abc2 -	libs - test.txt vẫn được theo dõi
+		# docs/*.txt: Bỏ docs/notes.txt, không phải docs/server/abc.txt
+			docs - server - abc.txt
+				 - notes.txt
+		# doc/**/*.txt: bỏ qua tất cả tập .txt trong thư mục doc
+			doc - server - def.txt 
+				- abc.txt
+			--> cả def.txt và abc.txt đều được bỏ qua
+		/public/html/*/*: 
+			public - html - css - detail.css
+								- top 		- top.css
+						  - js  - detail.js
+						  		- top 		- top.js
+			--> Tất cả các tập tin trên đều được bỏ qua
+		# !/public/html/css/*: Tuy nhiên tập tin detail.css và top.css vẫn sẽ được theo dõi

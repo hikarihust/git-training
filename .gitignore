@@ -3,3 +3,21 @@ me.txt
 
 # Folder libs
 /libs 
+
+# .xml files
+*.xml
+
+# Thư mục abc, bỏ qua tất cả tập tin trong thư mục abc
+abc/
+
+/testA/*/*
+!/testA/css/*.*
+
+*.txt
+!testhtml.txt
+
+# Không phải tập tin abc.txt
+/test/*.*
+!/test/abc.txt
+
+met.css
