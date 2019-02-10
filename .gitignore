@@ -13,7 +13,7 @@ abc/
 /testA/*/*
 !/testA/css/*.*
 
-*.txt
+#*.txt
 !testhtml.txt
 
 # Không phải tập tin abc.txt
