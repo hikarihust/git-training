@@ -63,6 +63,10 @@
 -STASH: Vùng lưu trữ tạm, trong quá trình làm việc mà chưa muốn commit thì lưu tạm vào vùng lưu trữ tạm STASH, sau đó có thể khôi
 	phục lại trạng thái mà ta đã làm việc mà được lưu vào STASH
 
+-Cấu hình editor notepad++: git config --global core.editor + path
+	[core]
+	editor = C:/Progra~1/Notepad++/notepad++.exe
+
 -------------------------------------------------------------------------------------------------------------------
 1.Conflict
  -Conflict xảy ra khi có cùng 1 sựu thay đổi trên cùng 1 dòng của 1 tập tin và GIT không biết lựa chọn câu lệnh nào.
