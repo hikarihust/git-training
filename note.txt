@@ -205,3 +205,19 @@ Tìm hiểu chi tiết hơn về gitignore:
 						  		- top 		- top.js
 			--> Tất cả các tập tin trên đều được bỏ qua
 		# !/public/html/css/*: Tuy nhiên tập tin detail.css và top.css vẫn sẽ được theo dõi
+
+------------------------------------------------------------------------------------------------------------------
+
+									Amend(Cách gộp commit)
+
+- Nên xây dựng xong 1 task hay yêu cầu nào đó or hoàn thiện fix xong 1 bug nào đó rồi mới thực hiện commit. Mỗi 1 commit 
+	nên đáp ứng 1 yêu cầu nào đó chứ không phải là mỗi 1 thao tác thì commit lên 1 lần
+
+Vấn đề: Nhận được 1 task nào đó, trong đó cần phải thực hiện tạo ra 2 file đó là task-01.txt và task-02.txt rồi sau đó
+	commit 2 file này lên. Nhưng trong quá trình thực hiện mình đã chỉ tạo ra 1 file task-01.txt và commit nó, sau đó
+	mới nhớ ra là chưa tạo file task-02.txt. Nếu sau đó nếu mình tạo file task-02.txt và commit lên thì sẽ có đến 2
+	commit mà trong đó yêu cầu chỉ có 1 commit.
+	- Tạo file task-01.txt, git add ., git commit -m "Done task 01 02" -> đã tạo được file task-01.txt và commit lên Local Repo
+	- Tạo file task-02.txt, git add .,  git commit --amend --> gộp thêm file task-02.txt và commit trên để tạo ra cùng 1 commit 
+		với file task-01.txt
+	- git commit --amend -m "Finish tast 01 02": Thay đổi phần comment của commit 'Done task 01 02' thành 'Finish tast 01 02'
