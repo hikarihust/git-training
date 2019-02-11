@@ -2,7 +2,7 @@
 -Cách xem thông số cấu hình Git: git config -l
 -Hủy thực hiện merge khi có conflict xảy ra: git merge --abort
 -Khi pull Remote Repo mới nhất về mà có conflict xảy ra: git merge --abort
--Ctrl + C: Exit để thực hiện tiếp lệnh git
+-Ctrl + C: Exit để thực hiện tiếp lệnh git, ngoài ra còn có 1 số trường hợp Exit khác đó là nhấn phím "q" hay ":x" rồi Enter 
 -git rebase --abort: Ngừng quá trình Rebase khi có conflict xảy ra
 -git reflog: Ngoài việc xem được lịch sử commit giống như lệnh git log thì còn xem được các hành động của ta trên Local Repo
 	Master Branch:git log
